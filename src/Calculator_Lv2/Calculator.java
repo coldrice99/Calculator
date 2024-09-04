@@ -9,7 +9,7 @@ public class Calculator {
     private List<Double> results = new ArrayList<>();
 
     //사칙연산을 수행한 후, 결과값을 반환하는 메서드
-    public List<Double> calculate(int num1, int num2, char operator) {
+    public double calculate(int num1, int num2, char operator) {
         double result = 0;
 
         switch (operator) {
@@ -34,12 +34,14 @@ public class Calculator {
         //결과를 리스트에 저장
         results.add(result);
 
-        return results;
+        return result;
     }
+
     //getter
     public List<Double> getResults() {
-        return results;
+        return new ArrayList<>(results);
     }
+
     //setter
     public void setResults(int num1, int num2, char operator) {
         calculate(num1, num2, operator);
@@ -47,7 +49,7 @@ public class Calculator {
 
     //Calculator 클래스에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드
     public void removeResults() {
-        if(!results.isEmpty()) {
+        if (!results.isEmpty()) {
             results.remove(0);
         } else {
             throw new IndexOutOfBoundsException("삭제할 연산 결과가 없습니다.");
