@@ -29,7 +29,7 @@ public class Calculator {
                 result = (double) num1 / num2;
                 break;
             default:
-                throw new IllegalStateException("잘못되 연산 기호입니다. 다시 시도해주세요.");
+                throw new IllegalStateException("잘못되 연산 기호입니다. 다시 입력해주세요.");
         }
         //결과를 리스트에 저장
         results.add(result);

@@ -25,7 +25,7 @@ public class App {
 //            }
             //첫 번째 숫자 입력
             while (true) {
-                System.out.println("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                System.out.print("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
                 if (sc.hasNextInt()) {
                     num1 = sc.nextInt();
                     if (num1 >= 0) {
@@ -40,7 +40,7 @@ public class App {
             }
             //두 번째 숫자 입력
             while (true) {
-                System.out.println("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                System.out.print("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
                 if (sc.hasNextInt()) {
                     num2 = sc.nextInt();
                     if (num2 >= 0) {
@@ -55,20 +55,28 @@ public class App {
             }
 
             //Step2 : 연산 기호 입력
-            System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
-            char operator = sc.next().charAt(0); // 첫 번째 문자만 입력
+            char operator;
+            do {
+                System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
+                operator = sc.next().charAt(0);
+
+                // 연산 기호가 잘못되었을 경우 Calculator 클래스에서 예외 처리
+                try {
+                    calc.setResults(num1, num2, operator);
+                    break; // 올바른 연산 기호라면 루프 탈출
+                } catch (IllegalStateException e) {
+                    System.out.println(e.getMessage());
+                } catch (ArithmeticException e) {
+                    System.out.println(e.getMessage());
+                }
+            } while (true);
 
             try {
-                //Step3 : 연산 수행 및 결과 출력
-                calc.setResults(num1, num2, operator);
+                // Step3 : 연산 수행 및 결과 출력
                 System.out.println("결과: " + calc.getResults());
             } catch (ArithmeticException e) {
-                //두번 째 수가 0일 때 나누기 연산하는 경우 처리
                 System.out.println(e.getMessage());
                 continue;
-            } catch (InputMismatchException e) {
-                //잘못된 연산 기호를 입력한 경우 처리
-                System.out.println(e.getMessage());
             }
 
             //Step 5 : exit 입력 시 종료
