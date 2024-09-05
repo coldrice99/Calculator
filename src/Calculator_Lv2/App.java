@@ -10,12 +10,19 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+            int num1 = 0, num2 = 0;
             //Step1 : 두 양의 정수 입력
-            System.out.print("첫 번째 숫자를 입력하세요: ");
-            int num1 = sc.nextInt();
+            try {
+                System.out.print("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                num1 = sc.nextInt();
 
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                num2 = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 입력입니다. 정수를 입력해주세요.");
+                sc.nextLine();
+                continue;
+            }
 
             //Step2 : 연산 기호 입력
             System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
@@ -30,6 +37,7 @@ public class App {
                 System.out.println(e.getMessage());
                 continue;
             } catch (InputMismatchException e) {
+                //잘못된 연산 기호를 입력한 경우 처리
                 System.out.println(e.getMessage());
             }
 
