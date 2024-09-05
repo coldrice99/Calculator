@@ -12,16 +12,46 @@ public class App {
         while (true) {
             int num1 = 0, num2 = 0;
             //Step1 : 두 양의 정수 입력
-            try {
-                System.out.print("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
-                num1 = sc.nextInt();
-
-                System.out.print("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
-                num2 = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("잘못된 입력입니다. 정수를 입력해주세요.");
-                sc.nextLine();
-                continue;
+//            try {
+//                System.out.print("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+//                num1 = sc.nextInt();
+//
+//                System.out.print("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+//                num2 = sc.nextInt();
+//            } catch (InputMismatchException e) {
+//                System.out.println("잘못된 입력입니다. 정수를 입력해주세요.");
+//                sc.nextLine();
+//                continue;
+//            }
+            //첫 번째 숫자 입력
+            while (true) {
+                System.out.println("첫 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                if (sc.hasNextInt()) {
+                    num1 = sc.nextInt();
+                    if (num1 >= 0) {
+                        break;
+                    } else {
+                        System.out.println("0 또는 양의 정수를 입력해주세요.");
+                    }
+                } else {
+                    System.out.println("잘못된 입력입니다. 정수를 입력해주세요.");
+                    sc.next(); // 잘못된 입력 처리
+                }
+            }
+            //두 번째 숫자 입력
+            while (true) {
+                System.out.println("두 번째 숫자를 입력하세요(0을 포함한 양의 정수): ");
+                if (sc.hasNextInt()) {
+                    num2 = sc.nextInt();
+                    if (num2 >= 0) {
+                        break;
+                    } else {
+                        System.out.println("0 또는 양의 정수를 입력해주세요.");
+                    }
+                } else {
+                    System.out.println("잘못된 입력입니다. 정수를 입력해주세요.");
+                    sc.next(); // 잘못된 입력 처리
+                }
             }
 
             //Step2 : 연산 기호 입력
