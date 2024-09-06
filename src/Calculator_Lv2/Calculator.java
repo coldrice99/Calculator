@@ -3,48 +3,27 @@ package Calculator_Lv2;
 import java.util.ArrayList;
 import java.util.List;
 
+//결과를 관리하고 계산을 수행하는 역할을 담당
 public class Calculator {
-
     //연산 결과를 저장하는 컬렉션 타입 필드
-    private List<Double> results = new ArrayList<>();
+    private final List<Double> results = new ArrayList<>();
+    private final Operation operation = new Operation();
 
     //사칙연산을 수행한 후, 결과값을 반환하는 메서드
-    public double calculate(int num1, int num2, char operator) {
-        double result = 0;
-
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case '*':
-                result = num1 * num2;
-                break;
-            case '/':
-                if (num2 == 0) {
-                    throw new ArithmeticException("나눗셈 연산에서 두 번째 정수가 0일 수 없습니다.");
-                }
-                result = (double) num1 / num2;
-                break;
-            default:
-                throw new IllegalStateException("잘못되 연산 기호입니다. 다시 입력해주세요.");
-        }
-        //결과를 리스트에 저장
+    public void addResult(double result) {
         results.add(result);
+    }
 
+    //setter 역할도 수행
+    public double performOperation(int num1, int num2, char operator) {
+        double result = operation.calculate(num1, num2, operator);
+        addResult(result);
         return result;
     }
 
     //getter
     public List<Double> getResults() {
         return new ArrayList<>(results);
-    }
-
-    //setter
-    public void setResults(int num1, int num2, char operator) {
-        calculate(num1, num2, operator);
     }
 
     //Calculator 클래스에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드
