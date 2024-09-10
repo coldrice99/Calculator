@@ -3,7 +3,11 @@ package Calculator_Lv2;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Lv2에서 연산 기능을 담당하는 클래스.
+ * 두 숫자와 연산자를 받아 연산을 수행하고, 결과를 리스트에 저장합니다.
+ * 연산 결과를 조회하거나, 리스트에서 첫 번째 값을 삭제하는 기능을 제공합니다.
+ */
 public class Calculator {
 
     // 연산 결과를 저장하는 컬렉션 (캡슐화되어 외부에서 직접 접근 불가)
@@ -14,6 +18,13 @@ public class Calculator {
         results = new ArrayList<>();
     }
 
+    /**
+     * 두 숫자와 연산 기호를 받아 연산을 수행하는 메서드.
+     * @param num1 첫 번째 숫자
+     * @param num2 두 번째 숫자
+     * @param operator 연산 기호 (+, -, *, /)
+     * @return 연산 결과
+     */
     public int calculate(int num1, int num2, char operator) {
         int result;
         switch (operator) {

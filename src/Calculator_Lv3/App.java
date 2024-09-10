@@ -1,7 +1,10 @@
 package Calculator_Lv3;
 
 /**
- * 메인 프로그램을 실행하는 클래스입니다.
+ * Lv3 계산기의 메인 클래스.
+ * 사용자가 입력한 두 개의 숫자와 연산자를 받아서 ArithmeticCalculator를 통해 연산을 수행하고,
+ * 결과를 출력합니다.
+ * 연산 결과를 리스트에 저장하며, 사용자가 입력한 값보다 큰 결과를 조회할 수 있습니다.
  */
 public class App {
 
@@ -39,6 +42,7 @@ public class App {
 
             // 계속할지 종료할지 확인
             if (inputHandler.checkExit()) {
+                System.out.println("계산기를 종료합니다.");
                 break;
             }
         }

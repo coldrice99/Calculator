@@ -2,11 +2,19 @@ package Calculator_Lv2;
 
 import java.util.Scanner;
 
-//입력 관련 로직을 처리하는 클래스
+/**
+ * Lv2 계산기에서 사용자 입력을 처리하는 클래스.
+ * 숫자와 연산자를 입력받고, 잘못된 입력에 대한 오류 처리도 수행합니다.
+ */
 public class InputHandler {
     private final Scanner sc = new Scanner(System.in);
 
-    //숫자 입력 받기
+    /**
+     * 사용자로부터 숫자를 입력받는 메서드.
+     * 잘못된 입력이 들어왔을 경우, 다시 입력받습니다.
+     * @param prompt 사용자에게 보여줄 메시지.
+     * @return 입력받은 숫자
+     */
     public int getInputNumber(String prompt) {
         int num;
         while (true) {
@@ -26,7 +34,12 @@ public class InputHandler {
         return num;
     }
 
-    //연산자 입력 받기
+    /**
+     * 사용자로부터 연산자를 입력받는 메서드.
+     * 나눗셈에서 두 번째 숫자가 0일 경우 다시 입력받습니다.
+     * @param num2 두 번째 숫자 (나눗셈에서 0인지 확인)
+     * @return 입력된 연산자
+     */
     public char getOperator(int num2) {
         char operator;
         while (true) {

@@ -2,12 +2,15 @@ package Calculator_Lv3;
 
 import java.util.Scanner;
 
-//입력 관련 로직을 처리하는 클래스
+/**
+ * 사용자로부터 입력을 받아 처리하는 클래스입니다.
+ * 숫자와 연산자 입력을 받고, 잘못된 입력에 대한 오류 처리도 수행합니다.
+ */
 public class InputHandler {
     private final Scanner sc = new Scanner(System.in);
 
 //    사용자로부터 숫자를 입력받는 메서드.
-//    제네릭 타입을 사용하여 int, double 등 다양한 숫자 타입을 처리할 수 있다.
+//    제네릭 타입을 사용하여 int, double 등 다양한 숫자 타입을 처리할 수 있습니다.
 //    @param prompt 사용자에게 보여줄 메시지.
 //    @param type 입력받을 숫자의 타입.
 //    @param <T> 숫자 타입을 제네릭으로 처리 (Number타입을 상속받은 타입)
@@ -22,16 +25,21 @@ public class InputHandler {
                 } else if(type == Double.class) {
                     return type.cast(sc.nextDouble());
                 } else {
-                    throw new IllegalArgumentException("Integer나 Double타입을 입력하세요.");
+                    throw new IllegalArgumentException("지원하는 타입이 아닙니다.");
                 }
             } catch (Exception e) {
                 System.out.println("잘못된 입력입니다. 숫자를 다시 입력해주세요");
-                sc.next();
+                sc.next(); //잘못된 입력 무시
             }
         }
     }
 
-    //연산자 입력 받기
+    /**
+     * 연산자를 입력받아 OperatorType Enum으로 반환하는 메서드
+     * 나눗셈의 경우 두 번째 숫자가 0이면 다시 입력을 받습니다
+     * @param num2 두 번째 숫자 (나눗셈 시 0인지 확인)
+     * @return 입력된 연산자에 해당하는 OperatorType Enum 값
+     */
     public OperatorType getOperator(double num2) {
         while(true) {
             System.out.print("사칙연산 기호를 입력하세요 (+, -, *, /): ");
@@ -67,7 +75,8 @@ public class InputHandler {
         System.out.println("계속하시겠습니까? (exit 입력 시 종료)");
         return sc.next().equalsIgnoreCase("exit");
     }
-
+    
+    // Scanner 자원 해제
     public void closeScanner() {
         sc.close();
     }

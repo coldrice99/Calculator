@@ -1,11 +1,16 @@
 package Calculator_Lv2;
 
+/**
+ * Lv2 계산기의 메인 클래스.
+ * 사용자로부터 두 숫자와 연산자를 입력받고, Calculator 클래스를 이용해 연산을 수행한 후 결과를 출력합니다.
+ * 'exit' 입력 시 프로그램이 종료되며, 연산 결과 리스트의 첫 번째 값을 삭제할지 여부도 처리합니다.
+ */
 public class App {
 
     public static void main(String[] args) {
 
-        InputHandler inputHandler = new InputHandler();
-        Calculator calc = new Calculator();
+        InputHandler inputHandler = new InputHandler(); //사용자 입력 및 예외처리를 하는 인스턴스 생성
+        Calculator calc = new Calculator(); // 계산을 수행하고 결과를 저장하는 인스턴스 생성
 
         while (true) {
             // 사용자로부터 첫 번째 숫자 입력
@@ -23,10 +28,10 @@ public class App {
             System.out.println("결과 리스트:" + calc.getResults());
 
 
-            // 결과 리스트의 첫번째 값 삭제
+            // 결과 리스트의 첫번째 값 삭제 여부 확인
             String deleteChoice = inputHandler.getDeleteChoice();
             if (deleteChoice.equalsIgnoreCase("Y")) {
-                calc.removeFirstResult();
+                calc.removeFirstResult(); // 첫 번째 결과 삭제
             }
 
             // 종료 여부 확인

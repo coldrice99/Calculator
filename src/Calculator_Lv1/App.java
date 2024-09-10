@@ -2,6 +2,11 @@ package Calculator_Lv1;
 
 import java.util.Scanner;
 
+/**
+ * Lv1 계산기의 메인 클래스.
+ * 사용자로부터 두 숫자와 연산자를 입력받아 사칙연산을 수행한 후 결과를 출력하는 역할을 합니다.
+ * 'exit' 입력 시 프로그램이 종료됩니다.
+ */
 public class App {
     public static void main(String[] args) {
 
@@ -9,18 +14,18 @@ public class App {
 
         while (true) {
 
-            //Step1 : 두 양의 정수 입력
+            // 두 양의 정수 입력
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int Num1 = sc.nextInt();
 
             System.out.print("두 번째 숫자를 입력하세요: ");
             int Num2 = sc.nextInt();
 
-            //Step2 : 연산 기호 입력
+            // 연산 기호 입력
             System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
             char operator = sc.next().charAt(0); // 첫 번째 문자만 입력
 
-            //Step3 : 연산 수행 및 결과 출력
+            // 연산 수행 및 결과 출력
             double result = 0;
             switch (operator) {
                 case '+':
@@ -46,7 +51,7 @@ public class App {
 
             System.out.println("결과: " + result);
 
-            //Step 5 : exit 입력 시 종료
+            // exit 입력 시 종료
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String nextLine = sc.next();
             if (nextLine.equals("exit")) {

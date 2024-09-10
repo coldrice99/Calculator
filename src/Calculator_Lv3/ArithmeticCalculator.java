@@ -6,13 +6,20 @@ import java.util.stream.Collectors;
 
 /**
  * 제네릭을 사용해 다양한 타입의 연산을 지원하는 사칙연산 계산기 클래스.
- * 연산 결과는 리스트에 저장되고, Lambda & Stream을 사용해 결과 조회 기능도 구현.
+ * 연산 결과는 리스트에 저장되며, Lambda & Stream을 사용해 결과 조회 기능을 제공합니다.
+ * 연산 결과는 Double과 같은 실수 타입으로 처리됩니다.
  */
 public class ArithmeticCalculator<T extends Number> {
 
-    private final List<T> results = new ArrayList<>();
+    private final List<T> results = new ArrayList<>(); //연산 결과를 저장하는 리스트
 
-    // 연산 메서드: OperatorType Enum을 사용해 연산 수행
+    /**
+     * 두 숫자와 연산자를 받아 사칙연산을 수행하는 메서드입니다.
+     * @param num1 첫 번째 숫자
+     * @param num2 두 번째 숫자
+     * @param operator 연산자 (ADD, SUBTRACT, MULTIPLY, DIVIDE)
+     * @return 연산 결과 (제네릭 타입)
+     */
     public T calculate(T num1, T num2, OperatorType operator) {
         double result;
         switch (operator) {
@@ -36,23 +43,32 @@ public class ArithmeticCalculator<T extends Number> {
         }
 
         T finalResult = (T) Double.valueOf(result);  // 제네릭 타입으로 변환
-        results.add(finalResult);
+        results.add(finalResult); //결과를 리스트에 추가
         return finalResult;
     }
 
-    // 연산 결과 리스트를 반환하는 메서드
+    /**
+     * 저장된 연산 결과 리스트를 반환하는 메서드입니다.
+     * @return 연산 결과 리스트
+     */
     public List<T> getResults() {
         return results;
     }
 
-    // 입력된 값보다 큰 연산 결과들을 반환하는 메서드 (Lambda & Stream 사용)
+    /**
+     * 입력된 값보다 큰 연산 결과들을 반환하는 메서드입니다. (Lambda & Stream 사용)
+     * @param value 비교할 값
+     * @return 입력된 값보다 큰 결과들의 리스트
+     */
     public List<T> findResultsGreaterThan(T value) {
         return results.stream()
                 .filter(result -> result.doubleValue() > value.doubleValue())
                 .collect(Collectors.toList());
     }
 
-    //연산 결과 리스트에서 가장 먼저 저장된 데이터를 삭제하는 메서드.
+    /**
+     * 연산 결과 리스트에서 가장 먼저 저장된 결과를 삭제하는 메서드입니다.
+     */
     public void removeFirstResult() {
         if (!results.isEmpty()) {
             results.remove(0);  // 첫 번째 결과 삭제
