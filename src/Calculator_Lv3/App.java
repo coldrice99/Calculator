@@ -34,6 +34,10 @@ public class App {
                 System.out.println("오류: " + e.getMessage());
             }
 
+            // 결과 필터링 (사용자가 입력한 값보다 큰 결과 출력)
+            double filterValue = inputHandler.getInputNumber("조회할 값보다 큰 결과를 필터링합니다. 값을 입력하세요: ", Double.class);
+            System.out.println("입력한 값보다 큰 결과들: " + calc.findResultsGreaterThan(filterValue));
+
             // 결과 리스트의 첫번째 값 삭제
             String deleteChoice = inputHandler.getDeleteChoice();
             if (deleteChoice.equalsIgnoreCase("Y")) {
