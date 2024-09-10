@@ -3,7 +3,7 @@ package Calculator_Lv3;
 //OperatorType Enum은 ArithmeticCalculator에 사용되는 연산자 정보를 관리한다.
 public enum OperatorType {
     ADD('+'),
-    SUBSTRACT('-'),
+    SUBTRACT('-'),
     MULTIPLY('*'),
     DIVIDE('/');
 
@@ -11,8 +11,8 @@ public enum OperatorType {
     private final char symbol;
 
 
-    //        Enum의 생성자로, 각 연산자에 해당하는 symbol을 초기화한다.
-//        @param symbol 연산을 나타내는 문자('+', '-', '*', '/')
+    // Enum의 생성자로, 각 연산자에 해당하는 symbol을 초기화한다.
+    // @param symbol 연산을 나타내는 문자('+', '-', '*', '/')
     OperatorType(char symbol) {
         this.symbol = symbol;
     }
@@ -21,8 +21,8 @@ public enum OperatorType {
         return symbol;
     }
 
-    //        주어진 symbol을 바탕으로 해당하는 OperatorType Enum을 반환하는 정적 메서드
-//        입력된 연산자 기호와 일치하는 Enum 상수를 찾습니다.
+    // 주어진 symbol을 바탕으로 해당하는 OperatorType Enum을 반환하는 정적 메서드
+    // 입력된 연산자 기호와 일치하는 Enum 상수를 찾습니다.
     public static OperatorType fromSymbol(char symbol) {
         for (OperatorType type : OperatorType.values()) {
             if (type.getSymbol() == symbol) {
@@ -32,4 +32,5 @@ public enum OperatorType {
         // 일치하는 연산자가 없을 경우 예외를 발생시킴
         throw new IllegalArgumentException("잘못된 연산자입니다: " + symbol);
     }
+
 }
