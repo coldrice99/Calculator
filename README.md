@@ -28,8 +28,8 @@
 - Lambda & Stream을 사용한 결과 필터링
 
 ## 파일 설명
-App.java: 메인 프로그램 파일로, 사용자 입력을 받아 연산을 수행하고 결과를 출력합니다.
-Calculator.java (Lv2): 연산을 수행하고 결과를 리스트에 저장하는 역할을 합니다.
-ArithmeticCalculator.java (Lv3): 제네릭을 사용한 계산 클래스입니다. Lambda & Stream을 사용하여 결과를 조회할 수 있습니다.
-InputHandler.java: 사용자 입력을 처리하는 클래스입니다.
-OperatorType.java (Lv3): Enum을 사용하여 연산자를 관리하는 클래스입니다.
+- App.java: 메인 프로그램 파일로, 사용자 입력을 받아 연산을 수행하고 결과를 출력합니다.
+- Calculator.java (Lv2): 연산을 수행하고 결과를 리스트에 저장하는 역할을 합니다.
+- ArithmeticCalculator.java (Lv3): 제네릭을 사용한 계산 클래스입니다. Lambda & Stream을 사용하여 결과를 조회할 수 있습니다.
+- InputHandler.java: 사용자 입력을 처리하는 클래스입니다.
+- OperatorType.java (Lv3): Enum을 사용하여 연산자를 관리하는 클래스입니다.
