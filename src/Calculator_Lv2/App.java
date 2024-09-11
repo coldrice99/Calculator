@@ -22,7 +22,7 @@ public class App {
 
 
             // 연산 수행 및 결과 출력
-            int result = calc.calculate(num1, num2, operator);
+            double result = calc.calculate(num1, num2, operator);
             System.out.println("결과: " + result);
             // 결과 리스트 출력
             System.out.println("결과 리스트:" + calc.getResults());

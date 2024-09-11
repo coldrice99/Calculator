@@ -11,7 +11,7 @@ import java.util.List;
 public class Calculator {
 
     // 연산 결과를 저장하는 컬렉션 (캡슐화되어 외부에서 직접 접근 불가)
-    private final List<Integer> results;
+    private final List<Double> results;
 
     // 생성자: 결과 리스트 초기화
     public Calculator() {
@@ -25,8 +25,8 @@ public class Calculator {
      * @param operator 연산 기호 (+, -, *, /)
      * @return 연산 결과
      */
-    public int calculate(int num1, int num2, char operator) {
-        int result;
+    public double calculate(int num1, int num2, char operator) {
+        double result;
         switch (operator) {
             case '+':
                 result = num1 + num2;
@@ -38,7 +38,7 @@ public class Calculator {
                 result = num1 * num2;
                 break;
             case '/':
-                result = num1 / num2;
+                result = (double)num1 / num2;
                 break;
             default:
                 throw new IllegalArgumentException("잘못된 연산자입니다: " + operator);
@@ -53,7 +53,7 @@ public class Calculator {
      * 연산 결과를 반환하는 Getter 메서드 (외부에서 간접적으로 접근 가능).
      * @return 연산 결과 리스트
      */
-    public List<Integer> getResults() {
+    public List<Double> getResults() {
         return new ArrayList<>(results); // 원본 보호를 위해 복사본 반환
     }
 
